@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>personal_website</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="stars"></div>
+  <div class="stars2"></div>
+  <div class="stars3"></div>
+
+  <div class="container">
+    <h1>Hi, My name is Fathima Misha✧</h1>
+
+    <img src="https://i.pinimg.com/736x/c7/5c/31/c75c316cfbb42a5d06802612b742d780.jpg" alt="starry magic Image" class="center-image">
+
+    <p>Welcome to my little corner !</p>
+    <p>I'm currently learning web development and creating fun, simple projects.</p>
+    <p>Explore more about me below:</p>
+
+    <div class="button-container">
+      <button onclick="createShootingStar(); goToPage('about.html');" class="button">About</button>
+      <button onclick="createShootingStar(); goToPage('contact.html');" class="button">Contact</button>
+      <button onclick="createShootingStar(); goToPage('portfolio.html');" class="button">Portfolio</button>
+    </div>
+  </div>
+
+  <script>
+    function goToPage(page) {
+      window.location.href = page;
+    }
+  </script>
+
+  <script>
+  function createShootingStar() {
+  const star = document.createElement("div");
+  star.classList.add("shooting-star");
+  document.body.appendChild(star);
+
+  setTimeout(() => {
+    star.remove();
+  }, 1600); // Remove star after 2 seconds
+}
+
+function goToPage(url) {
+  setTimeout(() => {
+    window.location.href = url;
+  }, 1000); // Delay navigation by 1 second so star effect shows
+}
+
+</script>
+
+<script>
+  document.addEventListener("mousemove", function(e) {
+    const sparkle = document.createElement("div");
+    sparkle.className = "sparkle";
+    sparkle.style.left = e.pageX + "px";
+    sparkle.style.top = e.pageY + "px";
+    document.body.appendChild(sparkle);
+
+    setTimeout(() => {
+      sparkle.remove();
+    }, 800); // sparkle disappears after 0.6s
+  });
+</script>
+
+
+</body>
+</html>

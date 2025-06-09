@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Contact</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="stars"></div>
+  <div class="stars2"></div>
+  <div class="stars3"></div>
+
+  <div class="container">
+    <h1>Contact Me</h1>
+    <p>Email: fathimamisha2006@gmail.com</p>
+    <p>Feel free to reach out and say hi — I don’t bite! </p>
+    <p>Except maybe if you deserve it (kiddin, not really)</p>
+    <p>✧ ✧ ✧ ✧ ✧</p>
+
+    <div class="home-btn"><button onclick="goBack()" class="button">← Home</button></div>
+  </div>
+
+  <script>
+    function goBack() {
+      window.location.href = 'index.html';
+    }
+  </script>
+
+  <script>
+  document.addEventListener("mousemove", function(e) {
+    const sparkle = document.createElement("div");
+    sparkle.className = "sparkle";
+    sparkle.style.left = e.pageX + "px";
+    sparkle.style.top = e.pageY + "px";
+    document.body.appendChild(sparkle);
+
+    setTimeout(() => {
+      sparkle.remove();
+    }, 600); // sparkle disappears after 0.6s
+  });
+</script>
+
+<script>
+  function goBack() {
+    createStarBurst(); // trigger sparkles
+    setTimeout(() => {
+      window.location.href = 'index.html';
+    }, 600); // gives time for stars to appear before redirect
+  }
+
+  function createStarBurst() {
+    const directions = [
+      { x: -30, y: -10 }, // top-left
+      { x: 30, y: -10 },  // top-right
+      { x: -20, y: 30 },  // bottom-left
+      { x: 20, y: 30 }    // bottom-right
+    ];
+
+    directions.forEach(dir => {
+      const star = document.createElement("div");
+      star.className = "sparkle-burst";
+      star.style.left = (window.innerWidth / 2) + "px";
+      star.style.top = (window.innerHeight / 2) + "px";
+      document.body.appendChild(star);
+
+      star.animate([
+        { transform: 'translate(0, 0)', opacity: 1 },
+        { transform: `translate(${dir.x}px, ${dir.y}px)`, opacity: 0 }
+      ], {
+        duration: 800,
+        easing: 'ease-out'
+      });
+
+      setTimeout(() => star.remove(), 800);
+    });
+  }
+</script>
+
+</body>
+</html>
